@@ -4,6 +4,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+
+
+//exemplo de named query
+@NamedQuery(query="select distinct avg(m.valor) from Movimentacao m where m.conta = :pConta" + " and m.tipo = :pTipo" + " group by m.data", name="MediasPorDiaETipo")
+//em.createNamedQuery("MediasPorDiaETipo", Double.class);
+
 
 @Entity
 public class Usuario {

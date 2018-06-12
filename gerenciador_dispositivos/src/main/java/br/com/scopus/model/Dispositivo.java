@@ -4,26 +4,30 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
-//@Entity
+@Entity
 public class Dispositivo {
 
-	//@Id
-	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer dispositivo_id;
 	private String tipo_dispositivo;
-	private String fabricante;
+	private String Fabricante;
 	private String modelo;
 	private String codigo_modelo;
 	private String sistema_operacional;
-	private String numero_armario;
 	private String acessorios;
+	private String numero_armario;
 	private String imei;
 	private String serial_scopus;
 	private String observacoes;
 	private String status;
 	private String imagem; // - CAMINHODAIMAGEMNOSERVIDOR/UPLOAD
-	//private Usuario responsavel_id;
+	@JoinColumn(unique = true)
+	@OneToOne
+	private Usuario responsavel_id;
 
 	public Integer getDispositivo_id() {
 		return dispositivo_id;
@@ -42,11 +46,11 @@ public class Dispositivo {
 	}
 
 	public String getFabricante() {
-		return fabricante;
+		return Fabricante;
 	}
 
 	public void setFabricante(String fabricante) {
-		this.fabricante = fabricante;
+		Fabricante = fabricante;
 	}
 
 	public String getModelo() {
@@ -73,20 +77,20 @@ public class Dispositivo {
 		this.sistema_operacional = sistema_operacional;
 	}
 
-	public String getNumero_armario() {
-		return numero_armario;
-	}
-
-	public void setNumero_armario(String numero_armario) {
-		this.numero_armario = numero_armario;
-	}
-
 	public String getAcessorios() {
 		return acessorios;
 	}
 
 	public void setAcessorios(String acessorios) {
 		this.acessorios = acessorios;
+	}
+
+	public String getNumero_armario() {
+		return numero_armario;
+	}
+
+	public void setNumero_armario(String numero_armario) {
+		this.numero_armario = numero_armario;
 	}
 
 	public String getImei() {
@@ -129,12 +133,12 @@ public class Dispositivo {
 		this.imagem = imagem;
 	}
 
-	/*public Usuario getResponsavel_id() {
+	public Usuario getResponsavel_id() {
 		return responsavel_id;
 	}
 
 	public void setResponsavel_id(Usuario responsavel_id) {
 		this.responsavel_id = responsavel_id;
-	}*/
+	}
 
 }

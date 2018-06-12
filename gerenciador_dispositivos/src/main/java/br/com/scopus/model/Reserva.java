@@ -4,15 +4,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
-//@Entity
+@Entity
 public class Reserva {
 
-	//@Id
-	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer reserva_id;
-	//private Usuario usuario;
-	//private Dispositivo dispositivo;
+	@ManyToOne
+	private Usuario usuario;
+	@ManyToOne
+	private Dispositivo dispositivo;
 	private String status;
 
 	public Integer getReserva_id() {
@@ -23,21 +26,21 @@ public class Reserva {
 		this.reserva_id = reserva_id;
 	}
 
-	/*public Usuario getUsuario() {
+	public Usuario getUsuario() {
 		return usuario;
 	}
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
-	}*/
+	}
 
-	/*public Dispositivo getDispositivo() {
+	public Dispositivo getDispositivo() {
 		return dispositivo;
 	}
 
 	public void setDispositivo(Dispositivo dispositivo) {
 		this.dispositivo = dispositivo;
-	}*/
+	}
 
 	public String getStatus() {
 		return status;

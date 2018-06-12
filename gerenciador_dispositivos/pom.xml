@@ -23,6 +23,12 @@
 			<version>5.2.8.Final</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>6.0.43</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<finalName>gerenciador_dispositivos</finalName>
